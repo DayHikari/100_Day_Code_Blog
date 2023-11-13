@@ -1,5 +1,6 @@
 // // Imports
 // Import controllers
+import * as postsControllers from "../Controllers/postsControllers.js";
 
 // Import express
 import express from "express";
