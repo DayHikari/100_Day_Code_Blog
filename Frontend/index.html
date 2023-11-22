@@ -27,44 +27,94 @@
         </section>
     </header>
     <main>
-        <h1>Posts</h1>
-        <section id="post_list">
-            <article>
-                <h4 id="0">Day x of 100:</h4>
-                <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
-            </article>
+        <section id="post_section">
+            <h1>Posts</h1>
+            <section id="post_list">
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+                <article>
+                    <h4 id="0">Day x of 100:</h4>
+                    <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
+                </article>
+            </section>
         </section>
         <section id="admin_section">
             <h2>Admin Section</h2>
             <form id="create_post">
                 <h3>Create Post</h3>
-                <label for="day">
+                <label for="create_day">
                     Day(s) of 100 Days of Code:
-                    <input type="text" name="day" />
+                    <input type="text" name="create_day" id="day_input"/>
                 </label>
-                <label for="content">
+                <label for="create_content">
                     Day's Content:
-                    <input type="text" name="content" />
                 </label>
-                <input type="submit" value="Post" />
+                <textarea name="create_content" rows="4" cols="50" maxlength="250"></textarea>
+                <input type="submit" value="Post" id="post"/>
             </form>
             <div id="selected_post_info">
                 <h3>Selected Post:</h3>
                 <h4>Day x of 100:</h4>
                 <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
-                <p id="id">0</p>
+                <p id="id">ID: 0</p>
             </div>
             <form id="create_post">
                 <h3>Edit Post</h3>
-                <label for="day">
+                <label for="edit_day">
                     Day(s) of 100 Days of Code:
-                    <input type="text" name="day" />
+                    <input type="text" name="edit_day" />
                 </label>
-                <label for="content">
+                <label for="edit_content">
                     Day's Content:
-                    <input type="text" name="content" />
                 </label>
-                <input type="submit" value="Update" />
+                <textarea name="edit_content" rows="4" cols="50" maxlength="250"></textarea>
+                <input type="submit" value="Update" id="update"/>
             </form>
             <div id="delete_post">
                 <h3>Delete Post</h3>
@@ -72,7 +122,9 @@
                 <p>This will permanently delete this post, are you sure?</p>
                 <button id="delete_button">Delete Selected Post</button>
             </div>
+            <button id="hide">Hide this section</button>
         </section>
+        <button id="show">Open Admin Menu</button>
     </main>
   </body>
 </html>

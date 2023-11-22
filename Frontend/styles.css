@@ -3,16 +3,87 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
 }
 
 header {
     border: 1px solid black;
+    width: 600px;
+    height: 200px;
+    position: absolute;
+    top: 1rem;
 }
 
 main {
     border: 1px solid black;
+    background-color: antiquewhite;
+    width: 100%;
+    height: clamp(750px, 90% - 200px, 1600px );
+    margin-top: 200px;
+}
+
+#post_section {
+    width: clamp(600px, 40%, 1200px);
+    height: clamp(700px, 100%, 1500px);
+    margin: auto;
+    
 }
 
 #post_list {
     border: 1px solid black;
+    border-radius: 1rem;
+    overflow-y: scroll;
+    height: 90%;
 }
+
+article {
+    margin: 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+article h4 {
+    margin-top: 0;
+}
+
+article p {
+    margin-bottom: 0;
+}
+
+#admin_section {
+    border: 1px solid black;
+    position: absolute;
+    left: 1rem;
+    top: 20%;
+    width: clamp(300px, 20%, 600px);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#create_post {
+    display: flex;
+    flex-direction: column;
+}
+
+#post, #update, #delete_button {
+    width: 10rem;
+    align-self: center;
+    padding: 0.2rem;
+    margin-top: 0.3rem;
+}
+
+#hide {
+    align-self: flex-end;
+}
+
+#show {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+}
+
