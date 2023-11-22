@@ -10,7 +10,7 @@
     <header>
         <h1>David Mason's 100 Days of Code Blog</h1>           
         <button id="login-button">Log in</button>
-        <form>
+        <form id="login-section">
             <label for="username">
                 Username: 
                 <input type="text" name="username" />
@@ -86,8 +86,8 @@
         </section>
         <section id="admin_section">
             <h2>Admin Section</h2>
-            <form id="create_post">
-                <h3>Create Post</h3>
+            <h3 id="create_post">Create Post</h3>
+            <form id="create_post_form">
                 <label for="create_day">
                     Day(s) of 100 Days of Code:
                     <input type="text" name="create_day" id="day_input"/>
@@ -98,14 +98,14 @@
                 <textarea name="create_content" rows="4" cols="50" maxlength="250"></textarea>
                 <input type="submit" value="Post" id="post"/>
             </form>
+            <h3 id="selected_post">Selected Post:</h3>
             <div id="selected_post_info">
-                <h3>Selected Post:</h3>
                 <h4>Day x of 100:</h4>
                 <p>Spend some time coding today. Lots of coding. Honest. Study all about code, and typing, and even some computer stuff too. Development. Nice buzzword there.</p>
                 <p id="id">ID: 0</p>
             </div>
-            <form id="create_post">
-                <h3>Edit Post</h3>
+            <h3 id="edit_post">Edit Post</h3>
+            <form id="edit_post_form">
                 <label for="edit_day">
                     Day(s) of 100 Days of Code:
                     <input type="text" name="edit_day" />
@@ -116,8 +116,8 @@
                 <textarea name="edit_content" rows="4" cols="50" maxlength="250"></textarea>
                 <input type="submit" value="Update" id="update"/>
             </form>
-            <div id="delete_post">
-                <h3>Delete Post</h3>
+            <h3 id="delete_post">Delete Post</h3>
+            <div id="delete_post_section">
                 <p>Would you like to delete the selected post?</p>
                 <p>This will permanently delete this post, are you sure?</p>
                 <button id="delete_button">Delete Selected Post</button>

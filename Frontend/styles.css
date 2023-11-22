@@ -30,6 +30,14 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
+#login-section {
+    /* display: none; */
+}
+
+#signed_in_options {
+    /* display: none; */
+}
+
 #logout-button {
     align-self: flex-end;
 }
@@ -82,9 +90,25 @@ article p {
     flex-direction: column;
 }
 
-#create_post {
+#create_post_form, #edit_post_form {
     display: flex;
     flex-direction: column;
+}
+
+#create_post_form {
+    display: none;
+}
+
+#selected_post_info {
+    display: none;
+}
+
+#edit_post_form {
+    display: none;
+}
+
+#delete_post_section {
+    display: none;
 }
 
 #post, #update, #delete_button {
