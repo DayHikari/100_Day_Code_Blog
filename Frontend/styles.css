@@ -12,9 +12,26 @@ body {
 header {
     border: 1px solid black;
     width: 600px;
-    height: 200px;
     position: absolute;
     top: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+#login-button {
+    width: 5rem;
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+#logout-button {
+    align-self: flex-end;
 }
 
 main {
