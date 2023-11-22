@@ -17,7 +17,7 @@ app.use(express.json());
 app.use("/posts", postsRoutes)
 
 // Error handling for use of an incorrect filepath
-app.use((req, res) => {
+app.use((_req, res, _next) => {
     res.status(404).json({
         success: false,
         error: "Incorrect file path. Please try /posts"

@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    border: 1px solid black;
+}
+
+main {
+    border: 1px solid black;
+}
+
+#post_list {
+    border: 1px solid black;
+}

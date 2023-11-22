@@ -1,6 +1,6 @@
 // // Imports
 // import pool for index
-import {pool} from "../Database/index";
+import {pool} from "../Database/index.js";
 
 
 // Get all posts function

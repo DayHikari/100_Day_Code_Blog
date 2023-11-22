@@ -1,6 +1,6 @@
 // // Imports
 // Import model functions
-// import * as postsModels from "../Models/postsModels.js"
+import * as postsModels from "../Models/postsModels.js"
 
 // // Controller functions
 // Get function
