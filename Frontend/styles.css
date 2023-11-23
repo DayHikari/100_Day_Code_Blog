@@ -31,11 +31,11 @@ header h1 {
 }
 
 #login-section {
-    /* display: none; */
+    display: none;
 }
 
 #signed_in_options {
-    /* display: none; */
+    display: none;
 }
 
 #logout-button {

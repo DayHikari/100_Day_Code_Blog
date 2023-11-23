@@ -1,5 +1,5 @@
 // // Imports
-// import pool for index
+// Import pool from index
 import {pool} from "../Database/index.js";
 
 
