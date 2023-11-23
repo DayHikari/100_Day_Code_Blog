@@ -1,6 +1,6 @@
 // // Imports
 // Import model functions
-import getLogin from "../Models/loginModels";
+import getLogin from "../Models/loginModels.js";
 
 // GET function
 export default async function getLogins(req, res) {

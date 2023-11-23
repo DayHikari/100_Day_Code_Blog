@@ -9,14 +9,15 @@ import cors from "cors";
 import {postsRoutes} from "./Routes/postsRoutes.js";
 
 // Import login route(s)
-import loginRoutes from "./Routes/loginRoutes";
+import {loginRoutes} from "./Routes/loginRoutes.js";
 
 // Declare the app variable set to express
-const app = express.static("../Frontend");
+const app = express();
 
 // Set the app.use methods
 app.use(cors());
 app.use(express.json());
+app.use(express.static("../Frontend"))
 app.use("/posts", postsRoutes);
 app.use("/login", loginRoutes);
 

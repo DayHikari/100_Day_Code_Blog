@@ -21,6 +21,7 @@ LOGIN_BUTTON.addEventListener("click", () => {
 })
 
 // Login function
-userLogin = (username, password) => {
-    const response = await fetch(/login)
+async function userLogin (username, password) {
+    const response = await fetch("/login");
+    console.log(response);
 }
