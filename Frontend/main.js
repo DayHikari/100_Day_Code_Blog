@@ -58,6 +58,14 @@ SIGN_IN_BUTTON.addEventListener("click", async (event) => {
     // Send the user information to the database
     const response = await userLogin(username, password);
 
+    // Error message text
+    const ERROR_MESSAGE = document.getElementById("error_message");
+
+    // Remove error message if present
+    if (ERROR_MESSAGE !== null) {
+        ERROR_MESSAGE.remove();
+    };
+
     // Error Handling for incorrect details
     if (response !== "Successful") {
         const message = document.createElement("p");
