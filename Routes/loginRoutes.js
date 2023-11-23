@@ -11,7 +11,7 @@ export const loginRoutes = express.Router();
 
 // // Express route(s)
 // GET request
-loginRoutes.get("/", getLogins)
+loginRoutes.post("/", getLogins)
 
 
 //

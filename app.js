@@ -17,7 +17,7 @@ const app = express();
 // Set the app.use methods
 app.use(cors());
 app.use(express.json());
-app.use(express.static("Frontend"))
+// app.use(express.static("Frontend"))
 app.use("/posts", postsRoutes);
 app.use("/login", loginRoutes);
 
