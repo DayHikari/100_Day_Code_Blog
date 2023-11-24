@@ -48,6 +48,10 @@ const DELETE_POST_HEADER = document.getElementById("delete_post");
 const DELETE_POST_SECTION = document.getElementById("delete_post_section");
 // Delete button
 const DELETE_POST_SUBMIT = document.getElementById("delete_button");
+// Hide button
+const HIDE_BUTTON = document.getElementById("hide");
+// Show button
+const SHOW_BUTTON = document.getElementById("show");
 
 // API endpoint
 const apiEndpoint = "http://localhost:7171";
@@ -413,8 +417,7 @@ DELETE_POST_SUBMIT.addEventListener("click", async () => {
     return DELETE_POST_SECTION.append(warning, DELETE_POST_SUBMIT);
   }
 
-    console.log(id)
-  // Delete the postr
+  // Delete the post
   const response = await fetch(apiEndpoint + `/posts/${id}`, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
@@ -444,3 +447,21 @@ DELETE_POST_SUBMIT.addEventListener("click", async () => {
   SELECTED_POST.innerHTML = "";
   SELECTED_POST.style.display = "none";
 });
+
+// Hide button click
+HIDE_BUTTON.addEventListener("click", () => {
+    // Hide the admin section
+    ADMIN_SECTION.style.display = "none"
+
+    // Show the show button
+    SHOW_BUTTON.style.display = "inline"
+});
+
+// Show button click
+SHOW_BUTTON.addEventListener("click", () => {
+    // Show the admin section
+    ADMIN_SECTION.style.display = "flex";
+
+    // Hide show button
+    SHOW_BUTTON.style.display = "none";
+})
