@@ -52,7 +52,7 @@ export async function deletePostById(req, res) {
   const postId = req.params.id;
 
   // Call the model delete function using the id
-  const deletedPost = await postsModels.deletePostById(id);
+  const deletedPost = await postsModels.deletePostById(postId);
 
   // Error handling for situation where id is not found
   if (!deletedPost) {

@@ -49,20 +49,20 @@
             <div id="selected_post_info"></div>
             <h3 id="edit_post">Edit Post</h3>
             <form id="edit_post_form">
+                <p>Please select a post to edit from the list.</p>
                 <label for="edit_day">
                     Day(s) of 100 Days of Code:
-                    <input type="text" name="edit_day" />
+                    <input type="text" name="edit_day" id="edit_day"/>
                 </label>
                 <label for="edit_content">
                     Day's Content:
                 </label>
-                <textarea name="edit_content" rows="4" cols="50" maxlength="250"></textarea>
+                <textarea name="edit_content" rows="4" cols="50" maxlength="250" id="edit_content"></textarea>
                 <input type="submit" value="Update" id="update"/>
             </form>
             <h3 id="delete_post">Delete Post</h3>
             <div id="delete_post_section">
                 <p>Would you like to delete the selected post?</p>
-                <p>This will permanently delete this post, are you sure?</p>
                 <button id="delete_button">Delete Selected Post</button>
             </div>
             <button id="hide">Hide this section</button>

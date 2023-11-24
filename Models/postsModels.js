@@ -45,7 +45,7 @@ export async function deletePostById(postId) {
     const queryText = `DELETE FROM posts WHERE id = $1 RETURNING *;`;
 
     // Send the request and set the return to a variable
-    const data = await query.pool(queryText, [postId]);
+    const data = await pool.query(queryText, [postId]);
 
     // Return the data
     return data.rows[0] || null;

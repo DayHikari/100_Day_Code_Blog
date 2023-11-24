@@ -34,9 +34,27 @@ const CREATE_POST_CONTENT = document.getElementById("content_input");
 const CREATE_POST_SUBMIT = document.getElementById("post");
 // Selected post section
 const SELECTED_POST = document.getElementById("selected_post_info");
+// Edit post header
+const EDIT_POST_HEADER = document.getElementById("edit_post");
+// Edit post form
+const EDIT_POST_FORM = document.getElementById("edit_post_form");
+// Edit post inputs
+const EDIT_POST_DAY = document.getElementById("edit_day");
+const EDIT_POST_CONTENT = document.getElementById("edit_content");
+const EDIT_POST_SUBMIT = document.getElementById("update");
+// Delete post header
+const DELETE_POST_HEADER = document.getElementById("delete_post");
+// Delete post section
+const DELETE_POST_SECTION = document.getElementById("delete_post_section");
+// Delete button
+const DELETE_POST_SUBMIT = document.getElementById("delete_button");
 
 // API endpoint
 const apiEndpoint = "http://localhost:7171";
+
+// Helper variables
+let item = false;
+let confirm = false;
 
 // //  Helper functions
 // Error present check
@@ -78,7 +96,7 @@ function loadPosts(posts) {
     const title = document.createElement("h4");
 
     // Title ID
-    title.id = `${elem.id}_title`
+    title.id = `${elem.id}_title`;
 
     // Set title content
     title.textContent = `Day ${elem.day} of 100:`;
@@ -87,7 +105,7 @@ function loadPosts(posts) {
     const content = document.createElement("p");
 
     // Content ID
-    content.id = `${elem.id}_content`
+    content.id = `${elem.id}_content`;
 
     // Set post content's content
     content.textContent = `${elem.post}`;
@@ -155,6 +173,8 @@ SIGN_IN_BUTTON.addEventListener("click", async (event) => {
 
   // Admin Seciton appears
   ADMIN_SECTION.style.display = "flex";
+
+  item = !item;
 });
 
 // Logout click event
@@ -167,6 +187,8 @@ LOGOUT_BUTTON.addEventListener("click", () => {
 
   // Admin section disappears
   ADMIN_SECTION.style.display = "none";
+
+  item = !item;
 });
 
 // // Post List Section
@@ -193,9 +215,8 @@ window.addEventListener("load", async () => {
   // Set the new articles to the variable
   let ALL_ARTICLES = document.querySelectorAll(".post_article");
 
-  // Call the 
+  // Call the
   articleEvent(ALL_ARTICLES);
-
 });
 
 // // Admin Section
@@ -253,34 +274,173 @@ CREATE_POST_SUBMIT.addEventListener("click", async (event) => {
   CREATE_POST_CONTENT.value = "";
 });
 
-console.log(ALL_ARTICLES)
-function articleEvent (nodes) {
-// Selected post function - function performed on each article
-nodes.forEach((elem) => {
+// Function to add an article ot the selected post
+function articleEvent(nodes) {
+  // Selected post function - function performed on each article
+  nodes.forEach((elem) => {
     // Event listener for each article
     elem.addEventListener("click", () => {
-        // Clear the selected post div
-        SELECTED_POST.innerHTML = "";
+      // Clear the selected post div
+      SELECTED_POST.innerHTML = "";
 
-        // Set the childen to variables
-        const TITLE = document.getElementById(`${elem.id}_title`);
-        const CONTENT = document.getElementById(`${elem.id}_content`);
+      // Make the selected info visable
+      SELECTED_POST.style.display = "inline";
 
-        // Create title
-        const title = document.createElement("h4");
-        title.textContent = TITLE.textContent;
+      // Set the childen to variables
+      const TITLE = document.getElementById(`${elem.id}_title`);
+      const CONTENT = document.getElementById(`${elem.id}_content`);
 
-        // Create content
-        const content = document.createElement("p");
-        content.textContent = CONTENT.textContent;
+      // Create title
+      const title = document.createElement("h4");
+      title.id = "selected_title";
+      title.textContent = TITLE.textContent;
 
-        // Create ID
-        const postID = document.createElement("p");
-        postID.id = "id";
-        postID.textContent = `ID: ${elem.id}`;
+      // Create content
+      const content = document.createElement("p");
+      content.id = "selected_content";
+      content.textContent = CONTENT.textContent;
 
-        // Append the elements
-        SELECTED_POST.append(title, content, postID);
-    })
-})
+      // Create ID
+      const postID = document.createElement("p");
+      postID.id = "id";
+      postID.textContent = `ID: ${elem.id}`;
+
+      // Append the elements
+      SELECTED_POST.append(title, content, postID);
+    });
+  });
 }
+
+// Edit post click event function
+EDIT_POST_HEADER.addEventListener("click", () => {
+  // Change the display of the edit post form
+  EDIT_POST_FORM.style.display === "none"
+    ? (EDIT_POST_FORM.style.display = "flex")
+    : (EDIT_POST_FORM.style.display = "none");
+});
+
+// Update a post
+EDIT_POST_SUBMIT.addEventListener("click", async (event) => {
+  // Prevent the page from re-loading
+  event.preventDefault();
+  // Clear error messages
+  errorPresent();
+
+  // Input values
+  const day = EDIT_POST_DAY.value;
+  const post = EDIT_POST_CONTENT.value;
+  let id;
+  try {
+    const postID = document.getElementById("id");
+    id = postID.textContent.slice(4);
+  } catch (error) {
+    // Try/catch used to prevent error from element not existing
+    const text = "Please select the post you wish to edit";
+    return errorMessage(text, EDIT_POST_FORM);
+  }
+
+  // Error handling
+  if (day === "" || post === "") {
+    const text = "Please complete all sections before postitng";
+    return errorMessage(text, EDIT_POST_FORM);
+  }
+
+  // Send patch request to the database
+  const response = await fetch(apiEndpoint + `/posts/${id}`, {
+    method: "PATCH",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({
+      day,
+      post,
+    }),
+  });
+
+  // Parse the response
+  const data = await response.json();
+
+  // Error handling
+  if (data.status !== "success") {
+    console.error(data.data);
+  }
+
+  // Call fetch function and set to variable
+  const posts = await getPosts();
+
+  // Call the load postts function
+  loadPosts(posts);
+
+  // Reset the input values
+  EDIT_POST_DAY.value = "";
+  EDIT_POST_CONTENT.value = "";
+});
+
+// Delete post click event function
+DELETE_POST_HEADER.addEventListener("click", () => {
+  // Change the display of the edit post form
+  DELETE_POST_SECTION.style.display === "none"
+    ? (DELETE_POST_SECTION.style.display = "inline")
+    : (DELETE_POST_SECTION.style.display = "none");
+});
+
+// Delete a post
+DELETE_POST_SUBMIT.addEventListener("click", async () => {
+  // Clear error messages
+  errorPresent();
+
+  // Set id using try catch
+  let id;
+  try {
+    const postID = document.getElementById("id");
+    id = postID.textContent.slice(4);
+  } catch (error) {
+    // Try/catch used to prevent error from element not existing
+    const text = "Please select the post you wish to delete";
+    return errorMessage(text, DELETE_POST_SECTION);
+  };
+
+  // Confirm that you want to delete
+  if (!confirm) {
+    // Create warning
+    const warning = document.createElement("p");
+    warning.id = "warning";
+    warning.textContent =
+      "This will permanently delete this post, are you sure?";
+
+    // Change confirm
+    confirm = !confirm;
+
+    // Append the warning and button
+    return DELETE_POST_SECTION.append(warning, DELETE_POST_SUBMIT);
+  }
+
+    console.log(id)
+  // Delete the postr
+  const response = await fetch(apiEndpoint + `/posts/${id}`, {
+    method: "DELETE",
+    headers: { "Content-type": "application/json" },
+  });
+
+  // Parse the response
+  const data = await response.json();
+
+  // Error handling
+  if (data.status !== "success") {
+    console.error(data.data);
+  }
+
+  // Call fetch function and set to variable
+  const posts = await getPosts();
+
+  // Call the load postts function
+  loadPosts(posts);
+
+  // Change confirm
+  confirm = !confirm;
+
+  // Delete the wanring
+  document.getElementById("warning").remove();
+
+  // Remove selected post
+  SELECTED_POST.innerHTML = "";
+  SELECTED_POST.style.display = "none";
+});
