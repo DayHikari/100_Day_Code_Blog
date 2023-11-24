@@ -86,7 +86,7 @@ article p {
     top: 20%;
     width: clamp(300px, 20%, 600px);
     padding: 1rem;
-    display: none;
+    display: flex;
     flex-direction: column;
 }
 
