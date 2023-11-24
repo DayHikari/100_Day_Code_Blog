@@ -100,7 +100,7 @@ article p {
 }
 
 #selected_post_info {
-    display: none;
+    display: inline;
 }
 
 #edit_post_form {

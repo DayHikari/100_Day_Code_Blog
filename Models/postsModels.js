@@ -24,7 +24,7 @@ export async function createPost(postData) {
     const data = await pool.query(queryText, [postData.day, postData.post]);
 
     // Return the data
-    return data.rows[0];
+    return data.rows;
 }
 
 // Update post by ID function
