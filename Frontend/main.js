@@ -227,7 +227,7 @@ window.addEventListener("load", async () => {
 // Create post click event function
 CREATE_POST_TITLE.addEventListener("click", () => {
   // Ternary operator to change create form display setting
-  CREATE_POST_FORM.style.display === "none"
+  CREATE_POST_FORM.style.display !== "flex"
     ? (CREATE_POST_FORM.style.display = "flex")
     : (CREATE_POST_FORM.style.display = "none");
 });
@@ -240,8 +240,7 @@ CREATE_POST_SUBMIT.addEventListener("click", async (event) => {
   // Set the input values to variables
   const day = CREATE_POST_DAY.value;
   const post = CREATE_POST_CONTENT.value;
-  console.log(post);
-
+  
   // Error handling
   errorPresent();
   if (day === "" || post === "") {
@@ -318,7 +317,7 @@ function articleEvent(nodes) {
 // Edit post click event function
 EDIT_POST_HEADER.addEventListener("click", () => {
   // Change the display of the edit post form
-  EDIT_POST_FORM.style.display === "none"
+  EDIT_POST_FORM.style.display !== "flex"
     ? (EDIT_POST_FORM.style.display = "flex")
     : (EDIT_POST_FORM.style.display = "none");
 });
@@ -381,7 +380,7 @@ EDIT_POST_SUBMIT.addEventListener("click", async (event) => {
 // Delete post click event function
 DELETE_POST_HEADER.addEventListener("click", () => {
   // Change the display of the edit post form
-  DELETE_POST_SECTION.style.display === "none"
+  DELETE_POST_SECTION.style.display !== "inline"
     ? (DELETE_POST_SECTION.style.display = "inline")
     : (DELETE_POST_SECTION.style.display = "none");
 });
