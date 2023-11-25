@@ -29,11 +29,21 @@ export async function createPost(postData) {
 
 // Update post by ID function
 export async function updatePostById(postId, postData) {
+    // Get the post details by ID
+    const getQueryText = `SELECT * FROM posts WHERE id = $1 ORDER BY id DESC;`
+
+    // Send the request for the post
+    const selectedPost = await pool.query(getQueryText, [postId]);
+
+    // Set the edited data or current data to variable
+    const day = postData.day ?? selectedPost.rows[0].day;
+    const post = postData.post ?? selectedPost.rows[0].post;
+
     // Set the query text to update the posts by setting the day and post to either the new data or the original if not present when id matches
     const queryText = `UPDATE posts SET day = COALESCE($1, day), post = COALESCE($2, post) WHERE id=$3 RETURNING *;`;
 
     // Send the request and set return to a variable
-    const data = await pool.query(queryText, [postData.day, postData.post, postId]);
+    const data = await pool.query(queryText, [day, post, postId]);
 
     // Return the data
     return data.rows[0] || null;

@@ -119,6 +119,12 @@ function loadPosts(posts) {
 
     // Append article to the post list
     POST_LIST.appendChild(article);
+
+    // Set the new articles to the variable
+    let ALL_ARTICLES = document.querySelectorAll(".post_article");
+
+    // Call the
+    articleEvent(ALL_ARTICLES);
   });
 }
 
@@ -215,12 +221,6 @@ window.addEventListener("load", async () => {
 
   // Call the load postts function
   loadPosts(posts);
-
-  // Set the new articles to the variable
-  let ALL_ARTICLES = document.querySelectorAll(".post_article");
-
-  // Call the
-  articleEvent(ALL_ARTICLES);
 });
 
 // // Admin Section
@@ -240,7 +240,7 @@ CREATE_POST_SUBMIT.addEventListener("click", async (event) => {
   // Set the input values to variables
   const day = CREATE_POST_DAY.value;
   const post = CREATE_POST_CONTENT.value;
-  
+
   // Error handling
   errorPresent();
   if (day === "" || post === "") {
@@ -399,7 +399,7 @@ DELETE_POST_SUBMIT.addEventListener("click", async () => {
     // Try/catch used to prevent error from element not existing
     const text = "Please select the post you wish to delete";
     return errorMessage(text, DELETE_POST_SECTION);
-  };
+  }
 
   // Confirm that you want to delete
   if (!confirm) {
@@ -449,18 +449,18 @@ DELETE_POST_SUBMIT.addEventListener("click", async () => {
 
 // Hide button click
 HIDE_BUTTON.addEventListener("click", () => {
-    // Hide the admin section
-    ADMIN_SECTION.style.display = "none"
+  // Hide the admin section
+  ADMIN_SECTION.style.display = "none";
 
-    // Show the show button
-    SHOW_BUTTON.style.display = "inline"
+  // Show the show button
+  SHOW_BUTTON.style.display = "inline";
 });
 
 // Show button click
 SHOW_BUTTON.addEventListener("click", () => {
-    // Show the admin section
-    ADMIN_SECTION.style.display = "flex";
+  // Show the admin section
+  ADMIN_SECTION.style.display = "flex";
 
-    // Hide show button
-    SHOW_BUTTON.style.display = "none";
-})
+  // Hide show button
+  SHOW_BUTTON.style.display = "none";
+});
