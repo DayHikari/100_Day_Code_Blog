@@ -153,12 +153,8 @@ article p {
 
 #create_post_form,
 #edit_post_form {
-  display: flex;
-  flex-direction: column;
-}
-
-#create_post_form {
   display: none;
+  flex-direction: column;
 }
 
 #selected_post_info {
@@ -174,10 +170,6 @@ article p {
 
 #id {
   margin-bottom: 0;
-}
-
-#edit_post_form {
-  display: none;
 }
 
 #edit_post_form p {
