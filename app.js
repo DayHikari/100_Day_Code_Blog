@@ -13,7 +13,7 @@ import {loginRoutes} from "./Routes/loginRoutes.js";
 
 // Declare the app variable set to express
 const app = express();
-app.use(express.static("Frontend"))
+app.use(express.static("public"))
 
 // Set the app.use methods
 app.use(cors());
