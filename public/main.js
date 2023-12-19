@@ -54,7 +54,7 @@ const HIDE_BUTTON = document.getElementById("hide");
 const SHOW_BUTTON = document.getElementById("show");
 
 // API endpoint
-const apiEndpoint = "http://localhost:7171";
+const apiEndpoint = "/api";
 
 // Helper variables
 let item = false;
