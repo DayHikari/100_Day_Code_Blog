@@ -7,4 +7,4 @@
   status = 200
   to = "/.netlify/functions/api/:splat"
 [build]
-  command = "npm run build && node ./Database/index.js"
+  command = "node ./Database/index.js"
