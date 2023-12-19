@@ -1,9 +1,9 @@
 // YOUR_BASE_DIRECTORY/netlify/functions/api.ts
 
-import express, { Router } from "express";
+import express from "express";
 import serverless from "serverless-http";
-import {postsRoutes} from "./Routes/postsRoutes.js";
-import {loginRoutes} from "./Routes/loginRoutes.js";
+import {postsRoutes} from "../../Routes/postsRoutes.js"
+import {loginRoutes} from "../../Routes/loginRoutes.js"
 
 const api = express();
 
