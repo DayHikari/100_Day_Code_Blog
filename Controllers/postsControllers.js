@@ -15,7 +15,7 @@ export async function getPosts(req, res) {
 // Post function
 export async function createPost(req, res) {
   // Set a variable to the request body object
-  const postData = req.body;
+  const postData = JSON.parse(req.apiGateway.event.body);
 
   // Call the model create function using the new data and set to a variable
   const newPost = await postsModels.createPost(postData);
@@ -30,7 +30,7 @@ export async function updatePostById(req, res) {
   const postId = req.params.id;
 
   // Set a variable containing the updated information
-  const updateData = req.body;
+  const updateData = JSON.parse(req.apiGateway.event.body);
 
   // Call the model update function using the update data
   const updatedPost = await postsModels.updatePostById(postId, updateData);
