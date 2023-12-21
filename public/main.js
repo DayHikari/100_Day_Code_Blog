@@ -57,15 +57,22 @@ const HIDE_BUTTON = document.getElementById("hide");
 const SHOW_BUTTON = document.getElementById("show");
 
 // API endpoint
-const apiEndpoint = "/api/hello";
+const apiEndpoint = "/api";
 
 async function testApiFunction() {
-  const apiTestRepsonse = await fetch(apiEndpoint)
+  const apiTestRepsonse = await fetch(apiEndpoint + "/hello")
   console.log("Api test response: ", apiTestRepsonse)
-  const testResponse = await apiTestRepsonse.json()
-  console.log("Parsed response: ", testResponse)
+  // const testResponse = await apiTestRepsonse.json()
+  // console.log("Parsed response: ", testResponse)
 };
 testApiFunction();
+
+async function postApiTestFunction() {
+  const postTestResponse = await fetch(apiEndpoint + "/posts");
+  const data = await postTestResponse.json();
+  console.log("Post response: ", data.data)
+};
+postApiTestFunction();
 
 // Helper variables
 let item = false;
