@@ -155,6 +155,8 @@ async function userLogin(username, password) {
 
   // Parse the response
   const data = await response.json();
+  console.log(data)
+  console.log(data.data)
   //Return the data
   return data.data;
 }
