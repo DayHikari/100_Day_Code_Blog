@@ -9,7 +9,7 @@ export default async function getLogins(req, res) {
   console.log("Login info from database", loginInfo)
 
   // Set the body to a variable
-  const userDetails = req.body;
+  const userDetails = res.body;
   console.log("User info in controller function:", userDetails)
 
   // Comparison
@@ -21,6 +21,6 @@ export default async function getLogins(req, res) {
       : "Successful";
 
   // Set the info to a response with status 200
-  res.status(200).json({ status: "success", data: [loginInfo, req, res] });
+  res.status(200).json({ status: "success", data: [message, userDetails] });
   // return { status: "success", data: message }
 }
