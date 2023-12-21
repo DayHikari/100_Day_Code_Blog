@@ -1,7 +1,7 @@
 // // // DOM items
 // // Header items
 
-import { test } from "vitest";
+// import { test } from "vitest";
 
 // Login button
 const LOGIN_BUTTON = document.getElementById("login-button");
