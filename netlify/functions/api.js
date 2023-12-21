@@ -1,13 +1,18 @@
 import express, {Router} from "express";
 import serverless from "serverless-http";
-import { postsRoutes } from "../../Routes/postsRoutes";
-import * as postControllers from "../../Controllers/postsControllers.js"
+import * as postControllers from "../../Controllers/postsControllers.js";
+import getLogins from "../../Controllers/loginControllers.js";
 
 const api = express();
 
 const router = Router();
-router.get("/hello", (req, res) => res.send("Hello World!"));
+// Post routing
 router.get("/posts", postControllers.getPosts);
+router.post("/posts", postControllers.createPost);
+router.patch("/posts/:id", postControllers.updatePostById);
+router.delete("/posts/:id", postControllers.deletePostById);
+// Login routing
+router.post("/login", getLogins);
 
 api.use("/api/", router);
 
