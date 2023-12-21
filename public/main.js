@@ -1,5 +1,8 @@
 // // // DOM items
 // // Header items
+
+import { test } from "vitest";
+
 // Login button
 const LOGIN_BUTTON = document.getElementById("login-button");
 // Login section
@@ -58,7 +61,7 @@ const apiEndpoint = "/api/hello";
 const apiTestRepsonse = await fetch(apiEndpoint)
 console.log("Api test response: ", apiTestRepsonse)
 const testResponse = await apiTestRepsonse.json()
-console.log("Parsed response: ", testRepsonse)
+console.log("Parsed response: ", testResponse)
 
 // Helper variables
 let item = false;
