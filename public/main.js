@@ -65,7 +65,7 @@ async function testApiFunction() {
   const testResponse = await apiTestRepsonse.json()
   console.log("Parsed response: ", testResponse)
 };
-await testApiFunction();
+testApiFunction();
 
 // Helper variables
 let item = false;
