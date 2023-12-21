@@ -21,6 +21,6 @@ export default async function getLogins(req, res) {
       : "Successful";
 
   // Set the info to a response with status 200
-  // res.status(200).json({ status: "success", data: message });
-  return { status: "success", data: message }
+  res.status(200).json({ status: "success", data: message });
+  // return { status: "success", data: message }
 }
