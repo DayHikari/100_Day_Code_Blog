@@ -3,7 +3,7 @@ import pg from "pg";
 
 // Assign the database connection from .env
 const connectionString = process.env.DATABASE_URL;
-console.log(`Database URL: ${connectionString}`)
+// console.log(`Database URL: ${connectionString}`)
 
 // Error handling in case the database url isn't assigned
 if (!connectionString) {

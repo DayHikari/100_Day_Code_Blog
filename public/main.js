@@ -54,7 +54,8 @@ const HIDE_BUTTON = document.getElementById("hide");
 const SHOW_BUTTON = document.getElementById("show");
 
 // API endpoint
-const apiEndpoint = "/api";
+const apiEndpoint = "/api/hello";
+console.log(apiEndpoint)
 
 // Helper variables
 let item = false;
