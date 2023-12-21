@@ -55,7 +55,10 @@ const SHOW_BUTTON = document.getElementById("show");
 
 // API endpoint
 const apiEndpoint = "/api/hello";
-console.log(apiEndpoint)
+const apiTestRepsonse = await fetch(apiEndpoint)
+console.log("Api test response: ", apiTestRepsonse)
+const testResponse = await apiTestRepsonse.json()
+console.log("Parsed response: ", testRepsonse)
 
 // Helper variables
 let item = false;
