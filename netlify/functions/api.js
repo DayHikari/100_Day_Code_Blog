@@ -12,7 +12,10 @@ router.post("/posts", postControllers.createPost);
 router.patch("/posts/:id", postControllers.updatePostById);
 router.delete("/posts/:id", postControllers.deletePostById);
 // Login routing
-router.post("/login", (req, res) => getLogins(req, res));
+router.post("/login", (req, res) => {
+    const response = getLogins(req, res);
+    res.json(response);
+});
 
 api.use("/api/", router);
 

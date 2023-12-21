@@ -15,11 +15,12 @@ export default async function getLogins(req, res) {
   // Comparison
   let message =
     loginInfo[0].username !== userDetails.username
-      ? userDetails.username
+      ? "Username incorrect"
       : loginInfo[0].password !== userDetails.password
       ? "Password incorrect"
       : "Successful";
 
   // Set the info to a response with status 200
-  res.status(200).json({ status: "success", data: message });
+  // res.status(200).json({ status: "success", data: message });
+  return { status: "success", data: message }
 }
