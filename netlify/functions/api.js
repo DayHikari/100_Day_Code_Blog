@@ -14,7 +14,7 @@ router.delete("/posts/:id", postControllers.deletePostById);
 // Login routing
 router.post("/login", (req, res) => {
     const response = getLogins(req, res);
-    res.json(response);
+    res.json(req.body);
 });
 
 api.use("/api/", router);
