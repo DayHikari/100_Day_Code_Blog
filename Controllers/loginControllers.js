@@ -6,9 +6,11 @@ import getLogin from "../Models/loginModels.js";
 export default async function getLogins(req, res) {
   // Call the model function and set to a variable
   const loginInfo = await getLogin();
+  console.log("Login info from database", loginInfo)
 
   // Set the body to a variable
   const userDetails = req.body;
+  console.log("User info in controller function:", userDetails)
 
   // Comparison
   let message =
